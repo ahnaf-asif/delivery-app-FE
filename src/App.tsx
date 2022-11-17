@@ -1,7 +1,8 @@
 import React from 'react';
+import { Layout } from '@/Layouts';
 
 function App() {
-	return <div className="App">App Baby</div>;
+	return <Layout>App</Layout>;
 }
 
 export default App;
