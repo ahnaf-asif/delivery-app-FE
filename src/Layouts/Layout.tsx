@@ -3,22 +3,20 @@ import { AppShell } from '@mantine/core';
 
 import { Navbar, Header, Footer } from './Components';
 
-const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
+const Layout: FC<{ children: React.ReactNode; hideBars?: boolean }> = ({ children, hideBars }) => {
 	const [opened, setOpened] = useState(false);
 
 	const toggleOpened = () => {
 		setOpened(!opened);
 	};
 
-	const authenticated = true;
-
 	return (
 		<AppShell
 			navbarOffsetBreakpoint="sm"
 			asideOffsetBreakpoint="sm"
-			navbar={authenticated ? <Navbar opened={opened} toggleOpened={toggleOpened} /> : <></>}
+			navbar={<Navbar hideBars={hideBars} opened={opened} toggleOpened={toggleOpened} />}
 			header={<Header opened={opened} toggleOpened={toggleOpened} />}
-			footer={authenticated ? <Footer /> : <></>}
+			footer={!hideBars ? <Footer /> : <></>}
 		>
 			{children}
 		</AppShell>

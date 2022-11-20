@@ -1,19 +1,26 @@
-import { Navbar as MantineNavbar } from '@mantine/core';
+import { Navbar as MantineNavbar, Box } from '@mantine/core';
 import React from 'react';
+
+import { StyledDrawer, StyledNavbar } from './Navbar.styles';
 
 interface NavbarType {
 	opened: boolean;
 	toggleOpened: any;
+	hideBars: boolean | undefined;
 }
 
-const Navbar = ({ opened }: NavbarType) => {
+const Navbar = ({ opened, toggleOpened, hideBars }: NavbarType) => {
 	return (
-		<MantineNavbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-			<MantineNavbar.Section>Logo and stuff</MantineNavbar.Section>
-			<MantineNavbar.Section grow mt="md">
-				Grow links
-			</MantineNavbar.Section>
-		</MantineNavbar>
+		<Box>
+			<StyledDrawer opened={opened} onClose={toggleOpened} title="Register" padding="xl" size="xl">
+				drawer content here
+			</StyledDrawer>
+			{!hideBars && (
+				<StyledNavbar p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
+					hello
+				</StyledNavbar>
+			)}
+		</Box>
 	);
 };
 

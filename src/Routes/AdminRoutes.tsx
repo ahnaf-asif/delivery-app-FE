@@ -1,3 +1,10 @@
 import { RouteType } from './Types';
 
-export const AdminRoutes: RouteType[] = [];
+import { AdminDashboard } from '@/Pages/AdminPages';
+
+export const AdminRoutes: RouteType[] = [
+	{
+		path: '/admin/dashboard',
+		element: <AdminDashboard />
+	}
+];
