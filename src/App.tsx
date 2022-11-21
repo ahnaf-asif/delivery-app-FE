@@ -3,16 +3,20 @@ import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { AppRoutes } from '@/Routes';
-import { useAppDispatch } from '@/Redux/hooks';
+import { useAppDispatch, useAppSelector } from '@/Redux/hooks';
 import { getAuth } from '@/Redux/Slices/AuthSlice';
+import { LoadingOverlay } from '@mantine/core';
 
 function App() {
 	const location = useLocation();
 	const dispatch = useAppDispatch();
+	const auth = useAppSelector(state => state.auth);
 
 	useEffect(() => {
 		dispatch(getAuth());
 	}, [location.pathname]);
+
+	if (auth.loading) return <LoadingOverlay visible={true}></LoadingOverlay>;
 
 	return (
 		<motion.div
