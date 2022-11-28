@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Card, Center, Button, Container, Title, Box } from '@mantine/core';
+import { useNavigate, Link } from 'react-router-dom';
+import { Card, Center, Button, Container, Title, Box, Text } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
-import { StyledPasswordInput, StyledTextInput } from './Login.styles';
+import { StyledPasswordInput, StyledTextInput, StyledLoginLink } from './Login.styles';
 import { emailRegexPattern } from '@/Shared/Utils';
 import { Layout } from '@/Layouts';
 import { loginUser } from '@/Redux/Slices/AuthSlice';
@@ -20,8 +20,10 @@ const Login = () => {
 			password: ''
 		},
 		validate: {
-			email: inputEmail => (emailRegexPattern.test(inputEmail) ? null : 'Please enter a valid email'),
-			password: inputPassword => (inputPassword.length >= 8 ? null : 'Password must be at least 8 characters')
+			email: inputEmail =>
+				emailRegexPattern.test(inputEmail) ? null : 'Please enter a valid email',
+			password: inputPassword =>
+				inputPassword.length >= 8 ? null : 'Password must be at least 8 characters'
 		}
 	});
 
@@ -50,12 +52,28 @@ const Login = () => {
 				<Box mt={30}>
 					<Card p={30} shadow="xs">
 						<form onSubmit={loginForm.onSubmit(values => submitLoginForm(values))}>
-							<StyledTextInput {...loginForm.getInputProps('email')} id="login-email" label="Your Email" placeholder="Your Email " />
-							<StyledPasswordInput {...loginForm.getInputProps('password')} id="login-password" label="Password" placeholder="password" />
+							<StyledTextInput
+								{...loginForm.getInputProps('email')}
+								id="login-email"
+								label="Your Email"
+								placeholder="Your Email "
+							/>
+							<StyledPasswordInput
+								{...loginForm.getInputProps('password')}
+								id="login-password"
+								label="Password"
+								placeholder="password"
+							/>
 							<Center mt={30}>
 								<Button color="blue.9" type="submit">
 									Login
 								</Button>
+							</Center>
+							<Center mt={20}>
+								<Text>
+									Not registered Yet?{' '}
+									<StyledLoginLink to="/register">Register Here</StyledLoginLink>
+								</Text>
 							</Center>
 						</form>
 					</Card>

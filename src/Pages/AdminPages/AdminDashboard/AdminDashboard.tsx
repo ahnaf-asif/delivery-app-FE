@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mantine/core';
 
-import { RequireAdminAccess } from '@/Pages/AdminPages';
+import { RequireAdminAccess } from '@/Shared/Components/Guards';
 import { Layout } from '@/Layouts';
 
 const AdminDashboard = () => {

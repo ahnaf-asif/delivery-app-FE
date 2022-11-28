@@ -34,3 +34,14 @@ export const COURIER_NAVBAR_LINKS = [
 		path: '/admin/companies'
 	}
 ];
+
+export const GUEST_NAVBAR_LINKS = [
+	{
+		title: 'Login',
+		path: '/login'
+	},
+	{
+		title: 'Register',
+		path: '/register'
+	}
+];
