@@ -13,7 +13,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledRightHeaderLinks = styled.div`
-	@media (max-width: 760px) {
+	@media (max-width: 768px) {
 		display: none;
 	}
 `;
