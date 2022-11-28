@@ -12,7 +12,7 @@ export const StyledNavbar = styled(Navbar)`
 
 export const StyledDrawer = styled(Drawer)`
 	.mantine-Drawer-title {
-		font-size: 30px;
+		font-size: 24px;
 		font-weight: bolder;
 		text-align: center;
 		margin-bottom: 20px;
@@ -48,4 +48,26 @@ export const StyledNavbarBox = styled.div<{ active?: boolean }>`
 export const StyledNavbarLink = styled(Link)`
 	color: black;
 	text-decoration: none;
+`;
+
+export const StyledDrawerProfile = styled.div`
+	border-top: 1px solid #eaeaea;
+	background: #f5f5f5;
+	margin-top: 20px;
+	margin-right: -25px;
+	margin-left: -25px;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+`;
+
+export const StyledDrawerProfileBox = styled.div<{ active?: boolean }>`
+	padding: 15px 10px;
+	display: flex;
+	justify-content: space-between;
+	background: transparent;
+	font-weight: bold;
+	color: ${({ active }) => (active ? '#0074d9' : 'black')};
 `;

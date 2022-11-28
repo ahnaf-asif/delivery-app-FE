@@ -4,7 +4,7 @@ import { AdminDashboard } from '@/Pages/AdminPages';
 
 export const AdminRoutes: RouteType[] = [
 	{
-		path: '/admin/dashboard',
+		path: '/admin',
 		element: <AdminDashboard />
 	}
 ];

@@ -17,3 +17,18 @@ export const StyledRightHeaderLinks = styled.div`
 		display: none;
 	}
 `;
+
+export const StyledHeaderDropdown = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+`;
+
+export const StyledHeaderDropdownLink = styled(Link)`
+	text-decoration: none;
+	color: black;
+	&:hover {
+		color: darkblue;
+	}
+`;

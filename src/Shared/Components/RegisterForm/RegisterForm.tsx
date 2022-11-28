@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Center, Button } from '@mantine/core';
+import { Card, Center, Button, Text } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 import { useAppDispatch, useAppSelector } from '@/Redux/hooks';
-import { getAuth, registerUser } from '@/Redux/Slices/AuthSlice';
+import { registerUser } from '@/Redux/Slices/AuthSlice';
 import { emailRegexPattern, phoneRegexPattern } from '@/Shared/Utils';
 import { RegisterFormProps, RegisterFormType } from './RegisterFormTypes';
-import { StyledPasswordInput, StyledTextInput } from './RegisterForm.styles';
+import { StyledPasswordInput, StyledTextInput, StyledLoginLink } from './RegisterForm.styles';
 
 const RegisterForm = ({ type }: RegisterFormProps) => {
 	const dispatch = useAppDispatch();
@@ -49,14 +49,40 @@ const RegisterForm = ({ type }: RegisterFormProps) => {
 	return (
 		<Card p={30} shadow="xs">
 			<form onSubmit={registerForm.onSubmit(values => submitRegisterForm(values))}>
-				<StyledTextInput {...registerForm.getInputProps('name')} id="register-name" label="Your Name" placeholder="Your Name " />
-				<StyledTextInput {...registerForm.getInputProps('email')} id="register-email" label="Your Email" placeholder="Your Email " />
-				<StyledTextInput {...registerForm.getInputProps('phone')} id="register-phone" label="Your Phone" placeholder="Your Phone " />
-				<StyledPasswordInput {...registerForm.getInputProps('password')} id="register-password" label="Password" placeholder="password" />
+				<StyledTextInput
+					{...registerForm.getInputProps('name')}
+					id="register-name"
+					label="Your Name"
+					placeholder="Your Name "
+				/>
+				<StyledTextInput
+					{...registerForm.getInputProps('email')}
+					id="register-email"
+					label="Your Email"
+					placeholder="Your Email "
+				/>
+				<StyledTextInput
+					{...registerForm.getInputProps('phone')}
+					id="register-phone"
+					label="Your Phone"
+					placeholder="Your Phone "
+				/>
+				<StyledPasswordInput
+					{...registerForm.getInputProps('password')}
+					id="register-password"
+					label="Password"
+					placeholder="password"
+				/>
 				<Center mt={30}>
 					<Button color="blue.9" type="submit">
 						Register
 					</Button>
+				</Center>
+
+				<Center mt={20}>
+					<Text>
+						Already Registered? <StyledLoginLink to="/login">Login Here</StyledLoginLink>
+					</Text>
 				</Center>
 			</form>
 		</Card>

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 export const StyledRegisterTitle = styled.div`
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	* {
-		font-size: 50px;
+		font-size: 30px;
 		font-weight: bold;
 	}
 	@media (max-width: 760px) {
